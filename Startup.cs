@@ -93,7 +93,7 @@ namespace WebApi
 
             // global cors policy
             app.UseCors(x => x
-                .AllowAnyOrigin()
+                .WithOrigins("http://localhost:4200")
                 .AllowAnyMethod()
                 .AllowAnyHeader());
 
