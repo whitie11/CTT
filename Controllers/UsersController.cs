@@ -91,7 +91,7 @@ namespace WebApi.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("getall")]
         public IActionResult GetAll()
         {
             var users = _userService.GetAll();

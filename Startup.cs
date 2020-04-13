@@ -58,13 +58,13 @@ namespace WebApi
                     OnTokenValidated = context =>
                     {
                         var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
-                        var userId = int.Parse(context.Principal.Identity.Name);
-                        var user = userService.GetById(userId);
-                        if (user == null)
-                        {
-                            // return unauthorized if user no longer exists
-                            context.Fail("Unauthorized");
-                        }
+                        // var userId = int.Parse(context.Principal.Identity.Name);
+                        // var user = userService.GetById(userId);
+                        // if (user == null)
+                        // {
+                        //     // return unauthorized if user no longer exists
+                        //     context.Fail("Unauthorized");
+                        // }
                         return Task.CompletedTask;
                     }
                 };
@@ -92,10 +92,12 @@ namespace WebApi
             app.UseRouting();
 
             // global cors policy
+
             app.UseCors(x => x
                 .WithOrigins("http://localhost:4200")
                 .AllowAnyMethod()
-                .AllowAnyHeader());
+                .AllowAnyHeader()
+                .AllowCredentials());
 
             app.UseAuthentication();
             app.UseAuthorization();
