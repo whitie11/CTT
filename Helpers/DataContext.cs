@@ -21,8 +21,11 @@ namespace WebApi.Helpers
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<Appt> Appts { get; set; }
         public DbSet<TimeSlot> TimeSlots { get; set; }
-
-    
+        public DbSet<Clinic> Clinics { get; set; }
+        public DbSet<Patient> Patients { get; set; }
+        public DbSet<Stage> Stages { get; set; }
+        public DbSet<Type> Types { get; set; }
     }
 }

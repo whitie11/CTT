@@ -1,4 +1,4 @@
-namespace CTT_WebAPI.Entities
+namespace WebApi.Entities
 {
     public class TimeSlot
     {
