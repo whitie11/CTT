@@ -20,5 +20,9 @@ namespace WebApi.Helpers
         }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<TimeSlot> TimeSlots { get; set; }
+
+    
     }
 }
