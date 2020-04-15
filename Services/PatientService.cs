@@ -2,11 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using WebApi.Entities;
-using WebApi.Helpers;namespace WebApi.Services
+using WebApi.Helpers;
+using WebApi.Models.Patients;
+
+namespace WebApi.Services
+
 {
     public interface IPatientService
     {
-        IEnumerable<Patient> GetAll();
+        IEnumerable<PatientsListModel> GetAll();
         Patient GetById(int id);
         Patient Create(Patient patient);
         void Update(Patient patient);
@@ -30,9 +34,24 @@ using WebApi.Helpers;namespace WebApi.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Patient> GetAll()
+        public IEnumerable<PatientsListModel> GetAll()
         {
-           return _context.Patients;
+           
+           var pts =(from p in  _context.Patients
+            select new PatientsListModel
+            {
+            PatientId = p.PatientId,
+            FirstName = p.FirstName,
+            LastName = p.LastName,
+            Dob = p.Dob,
+            nhsNo = p.nhsNo,
+            cpmsNo = p.cpmsNo,
+            Notes = p.Notes,
+            IsOpen = p.IsOpen,
+            Locality = p.Localities.Name
+            }).ToList();
+
+            return pts;
         }
 
         public Patient GetById(int id)

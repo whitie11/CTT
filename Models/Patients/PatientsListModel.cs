@@ -1,11 +1,11 @@
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebApi.Entities
+namespace WebApi.Models.Patients
 {
-    public class Patient
+    public class PatientsListModel
     {
-        public int PatientId { get; set; }
+
+   public int PatientId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime Dob { get; set; }
@@ -13,9 +13,7 @@ namespace WebApi.Entities
         public string cpmsNo { get; set; }
         public string Notes { get; set; }
        public Boolean IsOpen { get; set; }
+        public String Locality { get; set; }
+    } 
 
-        [ForeignKey("LocalityId")]
-        public int LocalityId { get; set; }
-        public Locality Localities { get; set; }
-    }
 }

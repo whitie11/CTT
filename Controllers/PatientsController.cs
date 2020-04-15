@@ -17,7 +17,7 @@ namespace WebApi.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("patient")]
+    [Route("patients")]
     public class PatientsController : ControllerBase
     {
         private IPatientService _patientService;
@@ -37,9 +37,9 @@ namespace WebApi.Controllers
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var patients = _patientService.GetAll();
+            var patientsList = _patientService.GetAll();
             // var model = _mapper.Map<IList<UserModel>>(users);
-            return Ok(patients);
+            return Ok(patientsList);
         }
 
     }
