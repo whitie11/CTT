@@ -27,5 +27,6 @@ namespace WebApi.Helpers
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Stage> Stages { get; set; }
         public DbSet<Type> Types { get; set; }
+        public DbSet<Locality> Localities { get; set; }
     }
 }

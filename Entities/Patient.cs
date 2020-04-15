@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Entities
 {
@@ -11,5 +12,10 @@ namespace WebApi.Entities
         public string NHSno { get; set; }   
         public string CPMSno { get; set; }
         public string Notes { get; set; }
+       public Boolean IsOpen { get; set; }
+
+        [ForeignKey("LocalityId")]
+        public int LocalityId { get; set; }
+        public Locality Localities { get; set; }
     }
 }

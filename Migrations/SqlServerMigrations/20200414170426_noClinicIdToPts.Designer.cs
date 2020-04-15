@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApi.Helpers;
 
 namespace WebApi.Migrations.SqlServerMigrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200414170426_noClinicIdToPts")]
+    partial class noClinicIdToPts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,21 +82,6 @@ namespace WebApi.Migrations.SqlServerMigrations
                     b.ToTable("Clinics");
                 });
 
-            modelBuilder.Entity("WebApi.Entities.Locality", b =>
-                {
-                    b.Property<int>("LocalityId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("LocalityId");
-
-                    b.ToTable("Localities");
-                });
-
             modelBuilder.Entity("WebApi.Entities.Patient", b =>
                 {
                     b.Property<int>("PatientId")
@@ -117,9 +104,6 @@ namespace WebApi.Migrations.SqlServerMigrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("LocalityId")
-                        .HasColumnType("int");
-
                     b.Property<string>("NHSno")
                         .HasColumnType("nvarchar(max)");
 
@@ -127,8 +111,6 @@ namespace WebApi.Migrations.SqlServerMigrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PatientId");
-
-                    b.HasIndex("LocalityId");
 
                     b.ToTable("Patients");
                 });
@@ -243,15 +225,6 @@ namespace WebApi.Migrations.SqlServerMigrations
                     b.HasOne("WebApi.Entities.Type", "Type")
                         .WithMany()
                         .HasForeignKey("TypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("WebApi.Entities.Patient", b =>
-                {
-                    b.HasOne("WebApi.Entities.Locality", "Localities")
-                        .WithMany()
-                        .HasForeignKey("LocalityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -19,6 +19,8 @@ namespace WebApi.Entities
         public int ClinicId { get; set; }
         public Clinic Clinic { get; set; }
 
+        public string ClinicGroup { get; set; }
+
         public int TypeId { get; set; }
         public Type Type { get; set; }
 
