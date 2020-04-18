@@ -83,6 +83,8 @@ namespace WebApi
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IPatientService, PatientService>();
             services.AddScoped<IDiaryService, DiaryService>();
+            services.AddScoped<IDiaryService2, DiaryService2>();
+            services.AddScoped<IListService, ListService>();
             services.AddControllers().AddNewtonsoftJson();
         }
 

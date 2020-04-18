@@ -22,22 +22,32 @@ namespace WebApi.Controllers
     {
 
         private IDiaryService _diaryService;
+        private IDiaryService2 _diaryService2;
 
-        public DiaryController(IDiaryService diaryService)
+        public DiaryController(IDiaryService diaryService, IDiaryService2 diaryService2)
         {
             _diaryService = diaryService;
+            _diaryService2 = diaryService2;
         }
 
 
 
-        [HttpPost("getList")]
-        public IActionResult GetList([FromBody] GetDiaryListDTO model)
-        {
-            DiaryPage dp = new DiaryPage();
+        // [HttpPost("getList")]
+        // public IActionResult GetList([FromBody] GetDiaryListDTO model)
+        // {
+        //     DiaryPageItem dp = new DiaryPageItem();
 
-            dp.setA = _diaryService.GetDiaryList(model.qDate, model.qClinicId, "A");
-            dp.setB = _diaryService.GetDiaryList(model.qDate, model.qClinicId, "B");
-            dp.setC = _diaryService.GetDiaryList(model.qDate, model.qClinicId, "C");
+        //     dp.setA = _diaryService.GetDiaryList(model.qDate, model.qClinicId, "A");
+        //     dp.setB = _diaryService.GetDiaryList(model.qDate, model.qClinicId, "B");
+        //     dp.setC = _diaryService.GetDiaryList(model.qDate, model.qClinicId, "C");
+        //     return Ok(dp);
+
+        // }
+
+        [HttpPost("getDiaryPage")]
+        public IActionResult GetDiaryPage([FromBody] GetDiaryListDTO2 model)
+        {
+            var dp = _diaryService2.GetDiaryPage(model.qDate, model.qClinicId);
             return Ok(dp);
 
         }
