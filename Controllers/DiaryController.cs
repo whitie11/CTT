@@ -47,7 +47,7 @@ namespace WebApi.Controllers
         [HttpPost("getDiaryPage")]
         public IActionResult GetDiaryPage([FromBody] GetDiaryListDTO2 model)
         {
-            var dp = _diaryService2.GetDiaryPage(model.qDate, model.qClinicId);
+            var dp = _diaryService2.GetDiaryPage(model.date, model.clinicId);
             return Ok(dp);
 
         }

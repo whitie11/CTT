@@ -12,7 +12,7 @@ namespace WebApi.Models.Diary
 
         public class GetDiaryListDTO2
     {
-        public DateTime qDate { get; set; }
-        public int qClinicId { get; set; }
+        public DateTime date { get; set; }
+        public int clinicId { get; set; }
     }
 }

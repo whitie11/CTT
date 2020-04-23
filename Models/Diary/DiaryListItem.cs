@@ -10,7 +10,7 @@ namespace WebApi.Models.Diary
         public int? apptId { get; set; }
         public int? patientId { get; set; }
         public int timeSlotId { get; set; }
-
+        public string notes { get; set; }
     }
 }
 

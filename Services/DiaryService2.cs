@@ -69,7 +69,8 @@ namespace WebApi.Services
                                     patientId = a.PatientId,
                                     PatientName = a.Patient.FirstName + " " + a.Patient.LastName,
                                     Reason = a.Type.TypeText,
-                                    apptId = a.ApptId
+                                    apptId = a.ApptId,
+                                    notes = a.Notes
                                 };
                             }
                             else if (a.ClinicGroup == "B")
@@ -81,7 +82,8 @@ namespace WebApi.Services
                                     patientId = a.PatientId,
                                     PatientName = a.Patient.FirstName + " " + a.Patient.LastName,
                                     Reason = a.Type.TypeText,
-                                    apptId = a.ApptId
+                                    apptId = a.ApptId,
+                                    notes = a.Notes
                                 };
                             }
                             else if (a.ClinicGroup == "C")
@@ -93,7 +95,8 @@ namespace WebApi.Services
                                     patientId = a.PatientId,
                                     PatientName = a.Patient.FirstName + " " + a.Patient.LastName,
                                     Reason = a.Type.TypeText,
-                                    apptId = a.ApptId
+                                    apptId = a.ApptId,
+                                    notes = a.Notes
                                 };
                             }
                             else { }
