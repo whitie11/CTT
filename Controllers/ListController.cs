@@ -15,7 +15,7 @@ using WebApi.Models.Users;
 
 namespace WebApi.Controllers
 {
-    [Authorize]
+    // [Authorize]
     [ApiController]
     [Route("lists")]
     public class ListController : ControllerBase
@@ -28,11 +28,18 @@ namespace WebApi.Controllers
             _listService = listService;
         }
 
-            [HttpGet("getClinics")]
-            public IActionResult GetClinics()
-            {
-                var clinicList = _listService.GetClinics();
-                return Ok(clinicList);
-            }
+        [HttpGet("getClinics")]
+        public IActionResult GetClinics()
+        {
+            var clinicList = _listService.GetClinics();
+            return Ok(clinicList);
+        }
+
+        [HttpGet("getLocalities")]
+        public IActionResult GetLocalities()
+        {
+            var LocList = _listService.GetLocalities();
+            return Ok(LocList);
         }
     }
+}

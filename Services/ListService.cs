@@ -14,7 +14,7 @@ namespace WebApi.Services
     public interface IListService
     {
      IEnumerable<Clinic> GetClinics();
-
+IEnumerable<Locality> GetLocalities();
     }
 
     public class ListService : IListService
@@ -28,6 +28,11 @@ namespace WebApi.Services
         public IEnumerable<Clinic> GetClinics()
         {
             return _context.Clinics;
+        }
+
+        public IEnumerable<Locality> GetLocalities()
+        {
+            return _context.Localities;
         }
     }
 }
